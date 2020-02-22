@@ -1,4 +1,5 @@
 {
+  "homepage": "http://Nicole103.github.io/react-clicky-game",
   "name": "react-clicky-game",
   "version": "0.1.0",
   "private": true,
@@ -30,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
   }
 }
