@@ -8,34 +8,45 @@ import friends from "./friends.json";
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
-    friends: friends,
+    friends,
     currentScore: 0,
     topScore: 0,
-    messageUser: "",
-    clickedCards:[]
+    messageUser: "Click any driver to begin!",
+    // clickedCards:[],
+    clicked: false
   };
 
   resetClicked = arr => {
-    this.setState({currentScore: 0});
-    for(var key in arr)
-    this.State.friends[key].clicked = false;
+    this.setState({
+      currentScore: 0,
+      topScore: this.state.topScore,
+      messageUser: "Sorry you already guessed that driver...",
+      // clickedCards: []
+      clicked: false
+    });
+    this.shuffleCards(friends);
+    return arr;
   }
+  
   checkClick = id => {
-    console.log(id);
-    
-    for(var key in friends){
-      if(friends[key].id === id){
-        if (friends[key].clicked){
-          this.setState({messageUser: "Sorry you already guessed that..."});
+    console.log("driver ID:" + (id));
+    // if(!this.state.clickedCards.includes(id));
+    // this.addPoint();
+    // this.state.clickedCards.push(id);
+
+     if(friends.id === id){
+        if (friends.clicked){
+          this.setState({messageUser: "Sorry you already guessed that driver..."});
           this.resetClicked(friends);
           console.log("Current top score: " + this.state.topScore);
           
         }else {
-          this.setState({messageUser: "Correct guess! keep clicking!"});
-      
-          this.setState({ currentScore: this.state.currentScore + 1 });
-                 
-          this.setState.friends[key].clicked = true;
+          this.setState({ messageUser: "Correct guess! keep clicking!"});  
+          this.setState({currentScore: this.state.currentScore + 1});
+          // this.setState({
+          //   clicked: this.friends.filter(friend=>friend.clicked)
+          // })  
+          // this.setState.friends[key].clicked = true;
           console.log("Current Score: " +this.state.currentScore);
 
           if(this.state.currentScore > this.state.topScore) {

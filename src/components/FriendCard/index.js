@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css";
 
+const 
+
 function FriendCard(props) {
   return (
     <div className="card" onClick={()=> props.checkClick(props.id)}>
