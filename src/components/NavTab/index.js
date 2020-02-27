@@ -12,10 +12,10 @@ function NavTabs(props) {
         <li className="nav-item">
           Top Score: {props.topScore}
         </li>
-        {props.messageUser === "Click any image to start." ?
-          (<li className="nav-item incorrect"> {props.messageUser}</li>) :
-          (<li className="nav-item correct">{props.messageUser}</li>
-          )}
+        <li className="nav-item">
+          Status: {props.messageUser}
+        </li>
+       
       </ul>
     </nav>
   );

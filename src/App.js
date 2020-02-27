@@ -5,6 +5,20 @@ import Title from "./components/Title";
 import NavTab from "./components/NavTab";
 import friends from "./friends.json";
 
+function shuffleCards(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i)
+    const temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+  return array
+};
+
+let currentScore = 0;
+let topScore = 0;
+
+
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
@@ -13,76 +27,61 @@ class App extends Component {
     topScore: 0,
     messageUser: "Click any driver to begin!",
     // clickedCards:[],
-    clicked: false
+    // clicked: false
   };
 
-  resetClicked = arr => {
-    this.setState({
-      currentScore: 0,
-      topScore: this.state.topScore,
-      messageUser: "Sorry you already guessed that driver...",
-      // clickedCards: []
-      clicked: false
-    });
-    this.shuffleCards(friends);
-    return arr;
+  shuffleCards = () => {
+    let shuffleFriends = shuffleCards(friends);
+    this.setState({ friends: shuffleFriends });
   }
-  
+
   checkClick = id => {
     console.log("driver ID:" + (id));
-    // if(!this.state.clickedCards.includes(id));
-    // this.addPoint();
-    // this.state.clickedCards.push(id);
+    const friends = this.state.friends;
+    const clickedFriend = friends.filter(friend => friend.id === id);
 
-     if(friends.id === id){
-        if (friends.clicked){
-          this.setState({messageUser: "Sorry you already guessed that driver..."});
-          this.resetClicked(friends);
-          console.log("Current top score: " + this.state.topScore);
-          
-        }else {
-          this.setState({ messageUser: "Correct guess! keep clicking!"});  
-          this.setState({currentScore: this.state.currentScore + 1});
-          // this.setState({
-          //   clicked: this.friends.filter(friend=>friend.clicked)
-          // })  
-          // this.setState.friends[key].clicked = true;
-          console.log("Current Score: " +this.state.currentScore);
+    if (clickedFriend[0].clicked) {
+      currentScore = 0;
+      friends.map(friend => friend.clicked = false);
+      this.setState({ messageUser: "Sorry you already guessed that driver..." });
+      this.setState({ friends });
+      this.setState({ currentScore });
 
-          if(this.state.currentScore > this.state.topScore) {
-            console.log("New Top Score: " + this.state.topScore);
-            this.State({topScore: this.state.currentScore});
-          };
-        }
-        
-      };
-    };
-    this.shuffleCards(friends);
-    this.setState({friends});
-    console.log(this.state.friends);
-  };
-  
-  shuffleCards = array => {
-    for(let i = array.length -1; i>0; i--){
-      const j = Math.floor(Math.random() * i)
-      const temp =array[i]
-      array[i] = array[j]
-      array[j] = temp
+
+    } else if (clickedFriend < 11) {
+      clickedFriend[0].clicked = true;
+      currentScore++;
+      this.setState({ messageUser: "Correct guess! keep clicking!" });
+      if (currentScore > topScore) {
+        topScore = currentScore;
+        this.setState({ topScore });
+      }
+      this.setState({ friends });
+      this.setState({ currentScore });
+      this.shuffleCards();
+    } else {
+      clickedFriend[0].clicked = true;
+      currentScore = 0;
+      topScore = 12;
+      this.setState({ messageUser: "You Won!" });
+      this.setState({ topScore });
+      friends.map(friend => friend.clicked = false);
+      this.setState({ friends });
+      this.setState({ currentScore });
+      this.shuffleCards();
     }
-    return array
   };
-  
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
       <Wrapper>
         <div className="container-fluid">
-          <NavTab currentScore = {this.state.currentScore} topScore = {this.state.topScore} messageUser = {this.state.messageUser}>Memory Match</NavTab>
+          <NavTab currentScore={this.state.currentScore} topScore={this.state.topScore} messageUser={this.state.messageUser}>Memory Match</NavTab>
         </div>
         <Title>Driver cards</Title>
         {this.state.friends.map(friend => (
-          <FriendCard 
+          <FriendCard
             checkClick={this.checkClick}
             id={friend.id}
             key={friend.id}
