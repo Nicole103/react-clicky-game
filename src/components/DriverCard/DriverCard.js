@@ -1,5 +1,5 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import './DriverCard.css';
 
 const onClick = (props) => {
 	props.shuffledrivers();

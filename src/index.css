@@ -1,10 +1,44 @@
-* {
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
 
-html, body, #root {
-  padding: 0;
-  margin: 0;
-  height: 100%;
+
+@media (max-width: 4000px){
+  body {
+     background-image: url("https://vignette.wikia.nocookie.net/mariokart/images/2/2a/Mk8-DLC-Course-SNES_RainbowRoad.jpg/revision/latest?cb=20150822070236");
+     background-color: rgb(43, 69, 77);
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: top center;
+     width: 100%;
+     /* position: relative; */
+     font-family: 'Cormorant Garamond', serif;
+  }
 }
+  @media (max-width: 1400px){
+    body {
+      background-image: url("https://vignette.wikia.nocookie.net/mariokart/images/2/2a/Mk8-DLC-Course-SNES_RainbowRoad.jpg/revision/latest?cb=20150822070236");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        background-attachment: fixed;
+        width: 100%;
+    }
+}
+.card-group{
+  position: relative;
+  margin-top: 5%;
+  margin-left: 2%;
+  margin-bottom: 1%;
+  margin-right: 2%;
+
+}
+html{
+  margin-top:0px;
+  padding-top:0px;
+}
+.row, .col{
+  margin-top:0px;
+  padding-top:0px;
+}
+/* cardWrap{
+  margin-right:300px;
+} */
+

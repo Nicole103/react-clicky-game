@@ -1,0 +1,47 @@
+.thumbnail:hover {
+	transform: scale(1.1);
+}
+
+.thumbnail{
+    width:150px;
+    height:150px;  
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.thumbnail img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+img{
+    height: 200px;
+    width: max-content;
+}
+
+@media (max-width: 4000px){
+    .card{
+        height: 200px;
+        width: 180px;
+        margin-top: 10px; 
+        margin-left: 20px;
+    }
+    img{
+        height: 200px;
+        width: max-content;
+    }
+}
+
+@media (max-width: 1400px){
+    .card{
+        height: 100px;
+        width: 80px;
+        margin-top: 10px; 
+        margin-left: 20px;
+    }
+    img{
+        height: 100px;
+        width: max-content;
+    }
+    
+}
