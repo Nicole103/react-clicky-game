@@ -9,3 +9,8 @@ nav{
 li{
   padding: 10px;
 }
+.navbar-brand{
+  text-align: center;
+  font-size: 35px;
+  text-decoration: underline;
+}

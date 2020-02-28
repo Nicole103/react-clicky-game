@@ -1,22 +1,10 @@
-.thumbnail:hover {
-	transform: scale(1.1);
-}
 
-.thumbnail{
-    width:150px;
-    height:150px;  
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.thumbnail img {
-    max-height: 100%;
-    max-width: 100%;
-}
 
 img{
     height: 200px;
     width: max-content;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 @media (max-width: 4000px){
