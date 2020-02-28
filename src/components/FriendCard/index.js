@@ -1,24 +1,19 @@
 import React from "react";
 import "./style.css";
 
-function FriendCard(props) {
-  return (
-    <div className="card" onClick={()=> props.checkClick(props.id)}>
-      <div className="img-container">
-        <img alt={props.name} src={props.image} />
-      </div>
-      <div className="content">
-        <ul>
-          <li>
-            <strong>Name:</strong> {props.name}
-          </li>
-          <li>
-            <strong>Place:</strong> {props.place}
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
+const onClick = (props) => {
+	props.shuffledrivers();
+	props.checkClick(props.id);
 }
 
-export default FriendCard;
+const DriverCard = (props) => (
+    <div className="card">
+      <div className="img-container">
+      <a className="thumbnail" onClick={() => onClick(props)}>
+        <img src={props.image} />
+      </a>
+      </div>
+ </div>
+)
+
+export default DriverCard
