@@ -14,23 +14,27 @@ class App extends Component {
     score: 0,
     highScore: 0,
     clickeddrivers: [],
-    messageUser: ""
+  
     
   };
 
   checkClick = id => {
-    console.log("driver ID:" + (id));
+    // console.log("driver ID:" + (id));
     if (this.state.clickeddrivers.includes(id)) {
-      this.setState({ messageUser: "Sorry you already guessed that driver." });
+      alert( "Sorry you already guessed that driver.");
+      this.setState({ score: 0, clickeddrivers: [] })
      
       // console.log("driver status" + (clicked));
-
-    } else {
+    } 
+    else {
       this.setState({ clickeddrivers: [...this.state.clickeddrivers, id] })
       this.setState({ score: this.state.score + 1 })
-      this.setState({ messageUser: "Correct guess! keep clicking!" });
-      
+      // this.setState({ messageUser: "Correct guess! keep clicking!" });
 
+      if (this.state.score >= this.state.highScore) {
+        this.setState({ highScore: this.state.score + 1 })
+      }
+      
       if (this.state.score === 11) {
         this.setState({ score: 0, highScore: 12, clickeddrivers: [], drivers: drivers })
       }
@@ -57,16 +61,16 @@ class App extends Component {
           <NavTab currentScore={this.state.currentScore} topScore={this.state.topScore} messageUser={this.state.messageUser}>Memory Match</NavTab>
         </div>
         <Title>Driver cards</Title>
-        <div className="container">
+        {/* <div className="container"> */}
           {this.state.drivers.map(driverRender => (
-            <div className='col-md-3' id={driverRender.id}>
+            <div className='container' id={driverRender.id}>
               <DriverCard
                 image={driverRender.image}
                 shuffledrivers={() => { this.shuffledrivers(this.state.drivers) }}
                 checkClick={() => { this.checkClick(driverRender.id) }} />
             </div>
           ))}
-        </div>
+        {/* </div> */}
       </Wrapper>
     );
   };
