@@ -11,7 +11,7 @@ This application is a game designed to test memory. The goal is to click every d
 
 When a player clicks a card that has not been clicked before they will receive a point in the score box. If the player clicks the box twice the message “sorry you already clicked that” will be displayed at the top of the page and their score is set to zero. The high score will change to whatever score is the current highest number of clicked cards in a row. 
 
-<img src="public/assets/img/Screen.png">
+<img src="public/assets/img/Screen.PNG">
 
 ### Video Demo:
 https://drive.google.com/file/d/12Me1YLKcIYVUxqTkBFSxi6x7OKzf3UDd/view
