@@ -12,7 +12,9 @@ When a player clicks a card that has not been clicked before they will receive a
 
 
 ### Video Demo:
-<iframe src="https://drive.google.com/file/d/12Me1YLKcIYVUxqTkBFSxi6x7OKzf3UDd/preview" width="640" height="480"></iframe>
+<video width="320" height="240" controls>
+<source src="../public/assets/img/React-App.webm">
+</video>
  
 ### basic steps:
 
