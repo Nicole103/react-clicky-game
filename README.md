@@ -33,7 +33,7 @@ https://drive.google.com/file/d/12Me1YLKcIYVUxqTkBFSxi6x7OKzf3UDd/view
 
 ## Links to application:
 
- Heroku: https://clicky-game-mario.herokuapp.com/
- GitHub: https://github.com/Nicole103/react-clicky-game
+* Heroku: https://clicky-game-mario.herokuapp.com/
+* GitHub: https://github.com/Nicole103/react-clicky-game
 
  ## Hope you enjoy the game!
