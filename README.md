@@ -1,5 +1,5 @@
 # Clicky Game:
-Created by Nicole Heersink
+ by Nicole Heersink
 
 ## About:
 
@@ -12,9 +12,11 @@ When a player clicks a card that has not been clicked before they will receive a
 
 
 ### Video Demo:
+<iframe src="https://drive.google.com/file/d/12Me1YLKcIYVUxqTkBFSxi6x7OKzf3UDd/preview" width="640" height="480"></iframe>
  
 ### basic steps:
-1. Go to: https://dashboard.heroku.com/apps/clicky-game-mario
+
+1. Go to: https://clicky-game-mario.herokuapp.com/
 2. Click on any driver to begin!
 3. Don't click the same card twice
 4. Win if you can
@@ -30,7 +32,7 @@ When a player clicks a card that has not been clicked before they will receive a
 
 ## Links to application:
 
- Heroku: https://dashboard.heroku.com/apps/clicky-game-mario
+ Heroku: https://clicky-game-mario.herokuapp.com/
  GitHub: https://github.com/Nicole103/react-clicky-game
 
  ## Hope you enjoy the game!
